@@ -1,0 +1,24 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: advise-policy
+spec:
+  version: {{ .TagName }}
+  homepage: https://github.com/ya-makariy/kubectl-sh-rs
+  platforms:
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: x86_64
+      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-apple-darwin.tar.gz" .TagName }}
+      bin: kubectl-sh
+    - selector:
+        matchLabels:
+          os: linux
+          arch: x86_64
+      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-unknown-linux-musl.tar.gz" .TagName }}
+      bin: kubectl-sh
+  shortDescription: Suggests PodSecurityPolicies and OPA Policies for cluster.
+  description: |
+    Suggests PSPs and OPA Policies based on the required capabilities of the currently running
+    workloads or a given manifest.

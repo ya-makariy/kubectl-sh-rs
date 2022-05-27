@@ -8,7 +8,7 @@ readme = "README.md"
 homepage = "https://github.com/ya-makariy/update-githook-rs"
 repository = "https://github.com/ya-makariy/update-githook-rs"
 license = "MIT"
-keywords = ["kubectl", "k8s", "kubernetes"]
+keywords = ["kubectl", "k8s", "kubernetes", "kube"]
 categories= ["development-tools"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
