@@ -23,11 +23,8 @@ impl Namespace {
         let namespaces = namespaces.split("\n").collect::<Vec<&str>>();
 
         let mut ns = Namespace::current();
-        let default = namespaces.iter()
-            .position(|&x|x == ns.name)
-            .expect("No default ns");
 
-        ns.name = match select(namespaces, default) {
+        ns.name = match select(namespaces, 0) {
             Ok(name) => {String::from(name)}
             Err(_) => { panic!("ERROR: No namespace selected")}
         };

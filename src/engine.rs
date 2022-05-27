@@ -1,6 +1,6 @@
 
 use std::process::Command;
-use dialoguer::{Select, theme::ColorfulTheme};
+use dialoguer::{FuzzySelect, theme::ColorfulTheme};
 use console::Term;
 use crate::Container;
 
@@ -29,7 +29,7 @@ pub fn run(cmd: &str, args: &[&str]) -> String {
 
 pub fn select(s: Vec<&str>, default: usize) -> std::io::Result<String> {
 
-    let selection = Select::with_theme(&ColorfulTheme::default())
+    let selection = FuzzySelect::with_theme(&ColorfulTheme::default())
         .items(&s)
         .default(default)
         .interact_on_opt(&Term::stderr())?.unwrap();

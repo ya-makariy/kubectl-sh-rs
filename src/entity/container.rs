@@ -18,7 +18,7 @@ impl Container {
         let containers = run("kubectl", &["get", "pods",
             &pod.name, "-o", "jsonpath={.spec.containers[*].name}",
             "-n", &pod.namespace.name]);
-        let containers = containers.split("\n").collect::<Vec<&str>>();
+        let containers = containers.split(" ").collect::<Vec<&str>>();
 
         let mut container = Container::new();
         container.pod = pod;
