@@ -17,6 +17,6 @@ categories= ["development-tools"]
 strip = true
 
 [dependencies]
-dialoguer = "0.10.1"
+dialoguer = { version = "0.10.1", features = ["fuzzy-select"] }
 console = "0.15.0"
 clap = { version = "3.1.18", features = ["derive"] }
