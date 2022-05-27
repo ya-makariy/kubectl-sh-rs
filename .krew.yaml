@@ -1,7 +1,7 @@
 apiVersion: krew.googlecontainertools.github.com/v1alpha2
 kind: Plugin
 metadata:
-  name: advise-policy
+  name: sh
 spec:
   version: {{ .TagName }}
   homepage: https://github.com/ya-makariy/kubectl-sh-rs
@@ -20,5 +20,4 @@ spec:
       bin: kubectl-sh
   shortDescription: Suggests PodSecurityPolicies and OPA Policies for cluster.
   description: |
-    Suggests PSPs and OPA Policies based on the required capabilities of the currently running
-    workloads or a given manifest.
+    Faster way to to access shell of pod's container through interactive selections
