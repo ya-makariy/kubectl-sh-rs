@@ -16,6 +16,11 @@ spec:
           os: linux
       {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-unknown-linux-musl.tar.gz" .TagName | indent 6  }}
       bin: kubectl-sh
+    - selector:
+        matchLabels:
+          os: windows
+      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-pc-windows-gnu.zip" .TagName | indent 6  }}
+      bin: kubectl-sh.exe
   shortDescription: Faster way to to access shell of pod's container through interactive selections
   description: |
     Faster way to to access shell of pod's container through interactive selections
