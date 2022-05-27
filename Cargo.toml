@@ -1,7 +1,16 @@
 [package]
-name = "kubectl-tools"
+name = "kubectl-sh"
 version = "0.1.0"
 edition = "2021"
+authors = ["Makariy <makariywallet@gmail.com>"]
+description =  "Update githook for gitlab repos, written on Rust"
+readme = "README.md"
+homepage = "https://github.com/ya-makariy/update-githook-rs"
+repository = "https://github.com/ya-makariy/update-githook-rs"
+license = "MIT"
+keywords = ["kubectl", "k8s", "kubernetes"]
+categories= ["development-tools"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [profile.release]
@@ -10,3 +19,4 @@ strip = true
 [dependencies]
 dialoguer = "0.10.1"
 console = "0.15.0"
+clap = { version = "3.1.18", features = ["derive"] }
