@@ -1,7 +1,7 @@
 apiVersion: krew.googlecontainertools.github.com/v1alpha2
 kind: Plugin
 metadata:
-  name: sh
+  name: interact-sh
 spec:
   version: {{ .TagName }}
   homepage: https://github.com/ya-makariy/kubectl-sh-rs
@@ -9,15 +9,13 @@ spec:
     - selector:
         matchLabels:
           os: darwin
-          arch: x86_64
-      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-apple-darwin.tar.gz" .TagName }}
+      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-apple-darwin.tar.gz" .TagName | indent 6 }}
       bin: kubectl-sh
     - selector:
         matchLabels:
           os: linux
-          arch: x86_64
-      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-unknown-linux-musl.tar.gz" .TagName }}
+      {{addURIAndSha "https://github.com/ya-makariy/kubectl-sh-rs/releases/download/{{ .TagName }}/kubectl-sh-rs_{{ .TagName }}_x86_64-unknown-linux-musl.tar.gz" .TagName | indent 6  }}
       bin: kubectl-sh
-  shortDescription: Suggests PodSecurityPolicies and OPA Policies for cluster.
+  shortDescription: Faster way to to access shell of pod's container through interactive selections
   description: |
     Faster way to to access shell of pod's container through interactive selections

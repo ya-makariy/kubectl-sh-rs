@@ -7,5 +7,8 @@ Simple program to access shell of pod's container through interactive selections
 By Cargo:
 `cargo install kubectl-sh --root /usr/local/`
 
+<details>
+<summary>In the future:  </summary>
 By Krew: 
 `kubectl krew install kubectl-sh`
+</details>
