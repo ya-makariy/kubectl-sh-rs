@@ -14,6 +14,9 @@ struct Args {
     /// If present, use the requested namespace.
     #[clap(short, long)]
     namespace: Option<String>,
+    /// If present, use the requested command, not bash/sh.
+    #[clap(short, long)]
+    command: Option<String>,
 }
 
 fn main() {
@@ -41,5 +44,10 @@ fn main() {
     println!("Select container: ");
     let c = Container::select(p);
 
-    shell(c);
+    let command = match args.command {
+        None => String::from("clear; (bash || sh)"),
+        Some(command) => command,
+    };
+
+    shell(c, command);
 }

@@ -4,11 +4,11 @@ use dialoguer::{FuzzySelect, theme::ColorfulTheme};
 use console::Term;
 use crate::Container;
 
-pub fn shell(container: Container) {
+pub fn shell(container: Container, command: String) {
     Command::new("kubectl")
         .args(&["exec", "-i", "-t", "-n", &container.pod.namespace.name,
             &container.pod.name, "-c", &container.name,
-            "--", "sh", "-c", "clear; (bash || sh)"])
+            "--", "sh", "-c", &command])
         .status().expect("Failed to run shell");
 }
 
